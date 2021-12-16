@@ -19,7 +19,7 @@ county_codes <-
              full.names = TRUE,
              pattern = "counties") %>%
   magrittr::set_names(.,stringr::str_remove(basename(tools::file_path_sans_ext(.)),"_counties")) %>%
-  purrr::map_dfr(readr::read_csv, .id = "State") %>%
+  purrr::map_dfr(readr::read_csv, .id = "State", na = "") %>%
   dplyr::rename(state = State,
                 county = County,
                 county_code = Abbreviation) %>%
@@ -110,5 +110,6 @@ counties %>%
   dplyr::mutate(smithsonian_id = glue::glue(format)) %T>%
   sf::write_sf("../smithsonian.geojson",
                delete_dsn = TRUE) %>%
-  mapview::mapview()
+  mapview::mapview(label = "smithsonian_id")
 # system("geo2topo smithsonian.geojson > smithsonian.topojson")
+
