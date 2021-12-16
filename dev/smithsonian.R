@@ -110,11 +110,13 @@ counties %>%
   dplyr::mutate(smithsonian_id = glue::glue(format)) %T>%
   sf::write_sf("../smithsonian.geojson",
                delete_dsn = TRUE) %>%
-  mapview::mapview(label = "smithsonian_id")# +
+  mapview::mapview(label = "smithsonian_id")
+
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "Georgia",
+  #                    dplyr::filter(state == "Mississippi",
   #                                  is.na(county_code)))
+
 # system("geo2topo smithsonian.geojson > smithsonian.topojson")
 
 
