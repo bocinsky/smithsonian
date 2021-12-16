@@ -114,7 +114,7 @@ counties %>%
 
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "Mississippi",
+  #                    dplyr::filter(state == "Louisiana",
   #                                  is.na(county_code)))
 
 # system("geo2topo smithsonian.geojson > smithsonian.topojson")
