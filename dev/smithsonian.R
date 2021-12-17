@@ -112,10 +112,10 @@ counties %>%
                delete_dsn = TRUE) %>%
   mapview::mapview(label = "smithsonian_id")
 
-  # mapview::mapview(counties %>%
-  #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "Louisiana",
-  #                                  is.na(county_code)))
+  mapview::mapview(counties %>%
+                     dplyr::left_join(county_codes) %>%
+                     dplyr::filter(state == "Florida",
+                                   is.na(county_code)))
 
 # system("geo2topo smithsonian.geojson > smithsonian.topojson")
 

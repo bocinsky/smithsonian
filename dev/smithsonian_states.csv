@@ -34,7 +34,7 @@ New York,,
 North Carolina,31,{state_code}{county_code}nnnn
 North Dakota,32,{state_code}{county_code}nnnn
 Ohio,33,{state_code}-{county_code}-nnnn
-Oklahoma,,
+Oklahoma,34,{state_code}{county_code}nnnn
 Oregon,35,{state_code}-{county_code}-nnnn
 Pennsylvania,36,{state_code}-{county_code}-nnnn
 Rhode Island,,RI-nnnn
