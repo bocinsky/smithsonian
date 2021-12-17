@@ -112,11 +112,16 @@ counties %>%
                delete_dsn = TRUE) %>%
   mapview::mapview(label = "smithsonian_id")
 
-  mapview::mapview(counties %>%
-                     dplyr::left_join(county_codes) %>%
-                     dplyr::filter(state == "Montana",
-                                   is.na(county_code)))
+  # mapview::mapview(counties %>%
+  #                    dplyr::left_join(county_codes) %>%
+  #                    dplyr::filter(state == "North Carolina",
+  #                                  is.na(county_code)))
 
 # system("geo2topo smithsonian.geojson > smithsonian.topojson")
+
+# readr::read_csv("states/North Carolina_counties.csv") %>%
+#   dplyr::mutate(County = stringr::str_to_title(County)) %>%
+#   readr::write_csv("states/North Carolina_counties.csv")
+
 
 
