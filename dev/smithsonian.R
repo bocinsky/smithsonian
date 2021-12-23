@@ -114,7 +114,7 @@ counties %>%
 
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "Missouri",
+  #                    dplyr::filter(state == "Nebraska",
   #                                  is.na(county_code)))
 
 # geo2topo ../smithsonian.geojson > ../smithsonian.topojson
