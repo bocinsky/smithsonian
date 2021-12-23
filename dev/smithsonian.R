@@ -114,15 +114,15 @@ counties %>%
 
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "Nebraska",
+  #                    dplyr::filter(state == "North Dakota",
   #                                  is.na(county_code)))
 
 # geo2topo ../smithsonian.geojson > ../smithsonian.topojson
 
 
-# readr::read_csv("states/North Carolina_counties.csv") %>%
+# readr::read_csv("states/Ohio_counties.csv") %>%
 #   dplyr::mutate(County = stringr::str_to_title(County)) %>%
-#   readr::write_csv("states/North Carolina_counties.csv")
+#   readr::write_csv("states/Ohio_counties.csv")
 
 
 
