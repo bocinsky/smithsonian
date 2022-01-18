@@ -124,5 +124,8 @@ counties %>%
 #   dplyr::mutate(County = stringr::str_to_title(County)) %>%
 #   readr::write_csv("states/Ohio_counties.csv")
 
+sf::read_sf("../smithsonian.geojson") %>%
+  rmapshaper::ms_simplify() %>%
+  sf::write_sf("../smithsonian_simple.geojson")
 
 
