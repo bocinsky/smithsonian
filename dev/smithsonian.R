@@ -104,6 +104,10 @@ counties %>%
   dplyr::bind_rows(ak_quads) %>%
   dplyr::bind_rows(az_quads) %>%
   dplyr::bind_rows(hi_quads) %>%
+  dplyr::bind_rows(counties %>%
+                     dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%
+                     dplyr::group_by(state) %>%
+                     dplyr::summarise()) %>%
   dplyr::left_join(state_codes) %>%
   # dplyr::filter(state == "Alabama") %>%
   dplyr::rowwise() %>%
@@ -114,7 +118,7 @@ counties %>%
 
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
-  #                    dplyr::filter(state == "North Dakota",
+  #                    dplyr::filter(state == "Pennsylvania",
   #                                  is.na(county_code)))
 
 # geo2topo ../smithsonian.geojson > ../smithsonian.topojson
@@ -126,6 +130,7 @@ counties %>%
 
 sf::read_sf("../smithsonian.geojson") %>%
   rmapshaper::ms_simplify() %>%
-  sf::write_sf("../smithsonian_simple.geojson")
+  sf::write_sf("../smithsonian_simple.geojson",
+               delete_dsn = TRUE)
 
 

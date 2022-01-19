@@ -29,7 +29,7 @@ Nebraska,25,{state_code}{county_code}nnnn
 Nevada,26,{state_code}{county_code}nnnn
 New Hampshire,27,{state_code}-{county_code}-nnnn
 New Jersey,28,{state_code}{county_code}nnnn
-New Mexico,29,{state_code}{county_code}nnnn
+New Mexico,29,LAnnnnn
 New York,,
 North Carolina,31,{state_code}{county_code}nnnn
 North Dakota,32,{state_code}{county_code}nnnn
