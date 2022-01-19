@@ -128,4 +128,3 @@ sf::read_sf("../smithsonian.fgb") %>%
   rmapshaper::ms_simplify() %>%
   sf::write_sf("../smithsonian_simple.geojson",
                delete_dsn = TRUE)
-
