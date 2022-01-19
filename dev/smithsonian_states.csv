@@ -4,7 +4,7 @@ Alaska,49,{state_code}-{quad}-nnnn
 Arizona,,{quad}:nnnn (suffix)
 Arkansas,3,{state_code}{county_code}nnnn
 California,,CA-{county_code}-nnnn
-Colorado,5,{state_code}{county_code}nnnn
+Colorado,5,{state_code}{county_code}.nnnn
 Connecticut,,CT-nnnnn
 Delaware,7,{state_code}{county_code}Bnnnn
 Florida,8,{state_code}{county_code}nnnn

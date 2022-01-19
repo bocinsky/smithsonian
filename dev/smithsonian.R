@@ -111,26 +111,21 @@ counties %>%
   dplyr::left_join(state_codes) %>%
   # dplyr::filter(state == "Alabama") %>%
   dplyr::rowwise() %>%
-  dplyr::mutate(smithsonian_id = glue::glue(format)) %T>%
-  sf::write_sf("../smithsonian.geojson",
-               delete_dsn = TRUE) %>%
-  mapview::mapview(label = "smithsonian_id")
+  dplyr::mutate(smithsonian_id = glue::glue(format)) %>%
+  sf::write_sf("../smithsonian.fgb",
+               delete_dsn = TRUE)
 
   # mapview::mapview(counties %>%
   #                    dplyr::left_join(county_codes) %>%
   #                    dplyr::filter(state == "Pennsylvania",
   #                                  is.na(county_code)))
 
-# geo2topo ../smithsonian.geojson > ../smithsonian.topojson
-
-
 # readr::read_csv("states/Ohio_counties.csv") %>%
 #   dplyr::mutate(County = stringr::str_to_title(County)) %>%
 #   readr::write_csv("states/Ohio_counties.csv")
 
-sf::read_sf("../smithsonian.geojson") %>%
+sf::read_sf("../smithsonian.fgb") %>%
   rmapshaper::ms_simplify() %>%
   sf::write_sf("../smithsonian_simple.geojson",
                delete_dsn = TRUE)
-
 
