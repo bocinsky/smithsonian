@@ -1,6 +1,6 @@
 state,state_code,format
 Alabama,1,{state_code}{county_code}nnnn
-Alaska,49,{state_code}-{quad}-nnnn
+Alaska,49,{quad}-nnnn
 Arizona,,{quad}:nnnn (suffix)
 Arkansas,3,{state_code}{county_code}nnnn
 California,,CA-{county_code}-nnnn
