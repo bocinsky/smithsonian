@@ -6,7 +6,7 @@ Arkansas,3,{state_code}{county_code}nnnn
 California,,CA-{county_code}-nnnn
 Colorado,5,{state_code}{county_code}.nnnn
 Connecticut,,CT-nnnnn
-Delaware,7,{state_code}{county_code}Bnnnn
+Delaware,7,{state_code}{county_code}-[block]-nnnn
 Florida,8,{state_code}{county_code}nnnn
 Georgia,9,{state_code}{county_code}nnnn
 Hawaii,50,{state_code}-{island_code}-{quad}-nnnn
