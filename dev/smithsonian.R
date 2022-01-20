@@ -231,7 +231,7 @@ zip("../smithsonian.geojson.zip","../smithsonian.geojson")
 
 # mapview::mapview(counties %>%
 #                    dplyr::left_join(county_codes) %>%
-#                    dplyr::filter(state == "Minnesota",
+#                    dplyr::filter(state == "Kentucky",
 #                                  is.na(county_code)))
 
 # readr::read_csv("states/Ohio_counties.csv") %>%
