@@ -30,7 +30,7 @@ Nevada,26,{state_code}{county_code}nnnn
 New Hampshire,27,{state_code}-{county_code}-nnnn
 New Jersey,28,{state_code}{county_code}nnnn
 New Mexico,29,LAnnnnn
-New York,,
+New York,30,{minor_civil_division}.nnnnnn
 North Carolina,31,{state_code}{county_code}nnnn
 North Dakota,32,{state_code}{county_code}nnnn
 Ohio,33,{state_code}-{county_code}-nnnn

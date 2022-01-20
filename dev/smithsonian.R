@@ -205,12 +205,20 @@ hi_quads <-
   dplyr::select(state, island_code, quad)
 
 
+# New York (Minor Civil Divisions)
+ny_mcds <- 
+  tigris::county_subdivisions(state = "NY") %>%
+  dplyr::transmute(state = "New York",
+                minor_civil_division = COUSUBFP) %>%
+  sf::st_transform("WGS84")
+
 counties %>%
   dplyr::left_join(county_codes) %>%
   dplyr::filter(!is.na(county_code)) %>%
   dplyr::bind_rows(ak_quads) %>%
   dplyr::bind_rows(az_quads) %>%
   dplyr::bind_rows(hi_quads) %>%
+  dplyr::bind_rows(ny_mcds) %>%
   dplyr::bind_rows(counties %>%
                      dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%
                      dplyr::group_by(state) %>%
@@ -238,5 +246,6 @@ sf::read_sf("../smithsonian.geojson") %>%
                delete_dsn = TRUE)
 
 sf::read_sf("../smithsonian_simple.geojson") %>%
-  mapview::mapview(label = "smithsonian_id")
+  mapview::mapview(label = "smithsonian_id",
+                   layer.name = "Site Numbers")
 
