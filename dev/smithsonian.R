@@ -116,10 +116,8 @@ tempfile(fileext = ".zip") %T>%
 ak_quads <- 
   sf::read_sf(tempdir(),
               layer = "ak250") %>%
-  dplyr::mutate(state = "Alaska",
-                QUADNO = as.character(QUADNO)) %>%
-  dplyr::select(state,
-                quad = QUADNO) %>%
+  dplyr::transmute(state = "Alaska",
+                   quad = SHORTNAME) %>%
   sf::st_transform("WGS84") %>%
   sf::st_intersection(tigris::states() %>%
                         dplyr::filter(STUSPS == "AK") %>%
@@ -209,7 +207,7 @@ hi_quads <-
 ny_mcds <- 
   tigris::county_subdivisions(state = "NY") %>%
   dplyr::transmute(state = "New York",
-                minor_civil_division = COUSUBFP) %>%
+                   minor_civil_division = COUSUBFP) %>%
   sf::st_transform("WGS84")
 
 counties %>%
