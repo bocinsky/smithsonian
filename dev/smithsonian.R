@@ -243,7 +243,11 @@ sf::read_sf("../smithsonian.geojson") %>%
   sf::write_sf("../smithsonian_simple.geojson",
                delete_dsn = TRUE)
 
+colors <- thematic::okabe_ito(4)
+
 sf::read_sf("../smithsonian_simple.geojson") %>%
   mapview::mapview(label = "smithsonian_id",
-                   layer.name = "Site Numbers")
+                   layer.name = "Site Numbers",
+                   zcol = "state",
+                   legend = FALSE)
 
