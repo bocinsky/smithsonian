@@ -240,16 +240,4 @@ zip("../smithsonian.geojson.zip","../smithsonian.geojson")
 #   dplyr::mutate(County = stringr::str_to_title(County)) %>%
 #   readr::write_csv("states/Ohio_counties.csv")
 
-sf::read_sf("../smithsonian.geojson") %>%
-  rmapshaper::ms_simplify() %>%
-  sf::write_sf("../smithsonian_simple.geojson",
-               delete_dsn = TRUE)
-
-colors <- thematic::okabe_ito(4)
-
-sf::read_sf("../smithsonian_simple.geojson") %>%
-  mapview::mapview(label = "smithsonian_id",
-                   layer.name = "Site Numbers",
-                   zcol = "state",
-                   legend = FALSE)
 
