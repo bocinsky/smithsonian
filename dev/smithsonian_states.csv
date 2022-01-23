@@ -17,7 +17,7 @@ Iowa,13,{state_code}{county_code}nnnn
 Kansas,14,{state_code}{county_code}nnnn
 Kentucky,15,{state_code}{county_code}nnnn
 Louisiana,16,{state_code}{county_code}nnnn
-Maine,,ME-{county_code}-nnnn
+Maine,,{quad}.nnnn
 Maryland,18,{state_code}{county_code}nnnn
 Massachusetts,19,{state_code}-{county_code}-nnnn
 Michigan,20,{state_code}{county_code}nnnn

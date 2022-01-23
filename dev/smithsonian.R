@@ -151,32 +151,33 @@ az_quads <-
                         sf::st_geometry() %>%
                         sf::st_transform("WGS84"))
 
-# # Maine (quads)
-# tempfile(fileext = ".zip") %T>%
-#   download.file("https://prd-tnm.s3.amazonaws.com/StagedProducts/MapIndices/GDB/MAPINDICES_Maine_State_GDB.zip",
-#                 destfile = .) %>%
-#   unzip(exdir = tempdir())
-# 
-# me_quads <- 
-#   sf::read_sf(file.path(tempdir(),"MAPINDICES_Maine_State_GDB.gdb"), 
-#               layer = "CellGrid_15Minute") %>%
-#   dplyr::filter(!(PRIMARY_STATE == "Utah"),
-#                 !(CELL_NAME %in% c("Terry Benches","Tinajas Altas OE S", "Whale Mountain"))) %>%
-#   dplyr::transmute(Name = stringr::str_to_upper(CELL_NAME)) %>%
-#   dplyr::full_join(readr::read_csv("states/Arizona_quads.csv") %>%
-#                      dplyr::transmute(Name = `Quad Name`,
-#                                       Quad = `Quad No`)) %>%
-#   dplyr::arrange(Name) %>%
-#   dplyr::mutate(quad = stringr::str_remove(Quad, ":[^:]+$")) %>%
-#   dplyr::group_by(quad) %>%
-#   dplyr::summarise() %>%
-#   dplyr::mutate(state = "Arizona") %>%
-#   dplyr::select(state, quad, geometry = SHAPE) %>%
-#   sf::st_transform("WGS84") %>%
-#   sf::st_intersection(tigris::states() %>%
-#                         dplyr::filter(STUSPS == "AZ") %>%
-#                         sf::st_geometry() %>%
-#                         sf::st_transform("WGS84"))
+# Maine (quads)
+tempfile(fileext = ".zip") %T>%
+  download.file("https://prd-tnm.s3.amazonaws.com/StagedProducts/MapIndices/GDB/MAPINDICES_Maine_State_GDB.zip",
+                destfile = .) %>%
+  unzip(exdir = tempdir())
+
+me_quads <-
+  sf::read_sf(file.path(tempdir(),"MAPINDICES_Maine_State_GDB.gdb"),
+              layer = "CellGrid_7_5Minute")  %>%
+  dplyr::left_join(readr::read_csv("states/Maine_quads.csv")) %>%
+  dplyr::transmute(state = "Maine", 
+                   quad = as.character(quad)) %>%
+  dplyr::select(state, quad, geometry = SHAPE) %>%
+  dplyr::group_by(state, quad) %>%
+  dplyr::summarise() %>%
+  sf::st_transform("WGS84") %>%
+  sf::st_intersection(counties %>%
+                        dplyr::filter(state == "Maine") %>%
+                        sf::st_geometry() %>%
+                        sf::st_transform("WGS84") %>%
+                        sf::st_union())
+
+me_quads$geometry[[90]] <-
+  me_quads$geometry[[90]][[2]]
+
+me_quads %<>%
+  sf::st_cast("MULTIPOLYGON")
 
 # Hawaii (islands and quads)
 tempfile(fileext = ".zip") %T>%
@@ -217,6 +218,7 @@ counties %>%
   dplyr::bind_rows(az_quads) %>%
   dplyr::bind_rows(hi_quads) %>%
   dplyr::bind_rows(ny_mcds) %>%
+  dplyr::bind_rows(me_quads) %>%
   dplyr::bind_rows(counties %>%
                      dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%
                      dplyr::group_by(state) %>%
