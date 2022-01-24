@@ -228,6 +228,30 @@ ny_mcds <-
                    minor_civil_division = COUSUBFP) %>%
   sf::st_transform("WGS84")
 
+# Massachusetts town codes
+tempfile(fileext = ".zip") %T>%
+  download.file("https://s3.us-east-1.amazonaws.com/download.massgis.digital.mass.gov/gdbs/MHC_Inventory_GDB.zip",
+                destfile = .) %>%
+  unzip(exdir = tempdir())
+  
+ma_towns <-
+  sf::read_sf(file.path(tempdir(),"MHC_Inventory.gdb"),
+              layer = "MHCTOWNS_POLY") %>%
+  dplyr::select(NAME = TOWN,
+                CODE) %>%
+  sf::st_drop_geometry() %>%
+  dplyr::right_join(tigris::county_subdivisions(state = "MA") %>%
+                      dplyr::mutate(NAME = stringr::str_remove(NAME, " Town"),
+                                    NAME = ifelse(NAME == "Manchester-by-the-Sea",
+                                                  "Manchester",
+                                                  NAME))) %>%
+  dplyr::filter(NAME != "County subdivisions not defined") %>%
+  sf::st_as_sf() %>%
+  dplyr::transmute(state = "Massachusetts",
+                   town = NAME,
+                   town_code = CODE) %>%
+  sf::st_transform("WGS84")
+
 counties %>%
   dplyr::left_join(county_codes) %>%
   dplyr::filter(!is.na(county_code)) %>%
@@ -235,6 +259,7 @@ counties %>%
   dplyr::bind_rows(az_quads) %>%
   dplyr::bind_rows(hi_quads) %>%
   dplyr::bind_rows(ny_mcds) %>%
+  dplyr::bind_rows(ma_towns) %>%
   dplyr::bind_rows(me_quads) %>%
   dplyr::bind_rows(counties %>%
                      dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%
