@@ -157,6 +157,23 @@ tempfile(fileext = ".zip") %T>%
                 destfile = .) %>%
   unzip(exdir = tempdir())
 
+## Quads for Arthur Spiess
+# sf::read_sf(file.path(tempdir(),"MAPINDICES_Maine_State_GDB.gdb"),
+#             layer = "CellGrid_7_5Minute")  %>%
+#   dplyr::left_join(readr::read_csv("states/Maine_quads.csv")) %>%
+#   dplyr::select(CELL_ID,
+#                 CELL_NAME,
+#                 CELL_MAPCODE,
+#                 MAINE_ID = quad) %>%
+#   dplyr::arrange(MAINE_ID, CELL_MAPCODE) %T>%
+#   sf::write_sf("states/maine_quads.gpkg",
+#                layer = "maine_quads",
+#                delete_dsn = TRUE) %>%
+#   dplyr::group_by(MAINE_ID) %>%
+#   dplyr::summarise() %>%
+#   mapview::mapview(zcol = "MAINE_ID",
+#                    legend = FALSE)
+
 me_quads <-
   sf::read_sf(file.path(tempdir(),"MAPINDICES_Maine_State_GDB.gdb"),
               layer = "CellGrid_7_5Minute")  %>%
