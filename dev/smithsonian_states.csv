@@ -19,7 +19,7 @@ Kentucky,15,{state_code}{county_code}nnnn
 Louisiana,16,{state_code}{county_code}nnnn
 Maine,,{quad}.nnnn
 Maryland,18,{state_code}{county_code}nnnn
-Massachusetts,19,{town_code}.nnnn
+Massachusetts,19,{state_code}-{county_code}-nnnn
 Michigan,20,{state_code}{county_code}nnnn
 Minnesota,21,{state_code}{county_code}nnnn
 Mississippi,22,{state_code}-{county_code}-nnnn
