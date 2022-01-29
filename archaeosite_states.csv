@@ -1,0 +1,51 @@
+state,state_code,format,reference,notes
+Alabama,1,{state_code}{county_code}n,https://web.archive.org/web/20120705233156/http://bama.ua.edu/~alaarch/excavationsteps/Alcoabbreviation.htm,"Alabama uses the Smithsonian Trinomial site numbering system. Alabama county codes are not readily available online, but a website from the University of Alabama Office of Archaeological Research is archived on the Wayback Machine. County codes have only the first letter capitalized."
+Alaska,49,{quad}-nnnnn,http://dnr.alaska.gov/parks/oha/hpseries/hp09.pdf,"Alaska site numbers are referred to as Alaska Heritage Resources Survey (AHRS) numbers, and consist of a three-letter designation (tri-graph) relating to the USGS quadrangle map on which the cultural resource is located, followed by a unique sequential number within that quadrangle. Geospatial data including the three-letter quad designations are available at https://mrdata.usgs.gov/ak/quadrangles/."
+Arizona,2,AZ {quad}:n (suffix),https://azsite3.asurite.ad.asu.edu/azsite/links/site_numb_system.pdf,"Arizona uses the Arizona State Museum (ASM) Site Numbering and Quadrangle System, which is a five-part designation including the state (AZ), a sequential letter representing the quadrangle (AÐFF), a number representing the quadrangle subdivision (1Ð16), a unique sequential number within that quadrangle subdivision, and a suffix denoting the site numbering authority (e.g., ""ASM""). The quadrangle subdivisions are 15 minute quads; however, the ASM provides the numbering system referenced to the names of the 7.5 minute quads, available at https://statemuseum.arizona.edu/crm/document/quad-map-numbers."
+Arkansas,3,{state_code}{county_code}n,https://archeology.uark.edu/forms-records/,"Arkansas uses the Smithsonian Trinomial site numbering system. Arkansas county codes are not readily available online, but codes were provided by the Arkansas Archaeological Survey registrar. Questions should be directed to the registrar."
+California,4,CA-{county_code}-n,https://ohp.parks.ca.gov/pages/1068/files/CHRIS_IC_Rules_of_Operation_Manual.pdf,"California uses a state-specific three-part site numbering system consisting of the letters ""CA"", a three letter code county designation, and a unique sequential number within the county. Each site is also assigned a ""Primary Number"" consisting of the letter ""P"", a two digit number representing the county, and a sequential six digit number."
+Colorado,5,{state_code}{county_code}.n,https://www.historycolorado.org/request-site-or-document-number,"Colorado uses the Smithsonian Trinomial site numbering system. Sites within Mesa Verde National Park have their own county designation (""MV""); Mesa Verde is completely within Montezuma County (MT)."
+Connecticut,6,nn-nnn,,"Connecticut uses a two-part site numbering system assigned by the Connecticut Historical Commission. Documentation of the numbering system, however, is not readily available online."
+Delaware,7,{state_code}{county_code}-[block]-nnn,https://history.delaware.gov/wp-content/uploads/sites/179/2019/01/Data-Coordination-and-Forms-2015.pdf,"Delaware uses a modified Smithsonian Trinomial site numbering system for archaeological sites; in addition to state and county codes, counties are subdivided into ""blocks"" (designated AÐK), within which sites are assigned sequential numbers with leading zeros. Historical properties use a slightly different numbering system. Delaware counties have single-letter designations. The Delaware State Historic Preservation Office was not willing to provide a geospatial file of the blocks for public use; questions should be directed to the DE SHPO."
+Florida,8,{state_code}{county_code}nnnnn,https://files.floridados.gov/media/700858/guide_archaeology_v50.pdf,"Florida county codes are not readily available online, but are available as part of the metadata for the archaeological sites GIS data layer, available at https://www.fnai.org/arrow/data/metadata/archaeology.htm."
+Georgia,9,{state_code}{county_code}nnnn,,
+Hawaii,50,{state_code}-{island_code}-{quad}-nnnn,,
+Idaho,10,{state_code}{county_code}nnnn,,
+Illinois,11,{state_code}{county_code}nnnn,,
+Indiana,12,{state_code}{county_code}nnnn,,
+Iowa,13,{state_code}{county_code}nnnn,,
+Kansas,14,{state_code}{county_code}nnnn,,
+Kentucky,15,{state_code}{county_code}nnnn,,
+Louisiana,16,{state_code}{county_code}nnnn,,
+Maine,17,{quad}.nnnn,,
+Maryland,18,{state_code}{county_code}nnnn,,
+Massachusetts,19,{state_code}-{county_code}-nnnn,,
+Michigan,20,{state_code}{county_code}nnnn,,
+Minnesota,21,{state_code}{county_code}nnnn,,
+Mississippi,22,{state_code}-{county_code}-nnnn,,
+Missouri,23,{state_code}{county_code}nnnn,,
+Montana,24,{state_code}{county_code}nnnn,,
+Nebraska,25,{state_code}{county_code}nnnn,,
+Nevada,26,{state_code}{county_code}nnnn,,
+New Hampshire,27,{state_code}-{county_code}-nnnn,,
+New Jersey,28,{state_code}{county_code}nnnn,,
+New Mexico,29,LAnnnnn,,
+New York,30,{minor_civil_division}.nnnnnn,,
+North Carolina,31,{state_code}{county_code}nnnn,,
+North Dakota,32,{state_code}{county_code}nnnn,,
+Ohio,33,{state_code}-{county_code}-nnnn,,
+Oklahoma,34,{state_code}{county_code}nnnn,,
+Oregon,35,{state_code}-{county_code}-nnnn,,
+Pennsylvania,36,{state_code}-{county_code}-nnnn,,
+Rhode Island,37,RI-nnnn,,
+South Carolina,38,{state_code}-{county_code}-nnnn,,
+South Dakota,39,{state_code}{county_code}nnnn,,
+Tennessee,40,{state_code}{county_code}nnnn,,
+Texas,41,{state_code}-{county_code}-nnnn,,
+Utah,42,{state_code}-{county_code}-nnnn,,
+Vermont,43,VT-{county_code}-nnnn,,
+Virginia,44,{state_code}-{county_code}-nnnn,,
+Washington,45,{state_code}-{county_code}-nnnn,,
+West Virginia,46,{state_code}-{county_code}-nnnn,,
+Wisconsin,47,{state_code}-{county_code}-nnnn,,
+Wyoming,48,{state_code}{county_code}nnnn,,
