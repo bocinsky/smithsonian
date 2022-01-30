@@ -71,7 +71,7 @@ yell <-
   dplyr::transmute(state = "Wyoming",
                    county = "Yellowstone National Park") 
 
-# Remove Mesa Verde from within the boundary of Wyoming counties
+# Remove Yellowstone from within the boundary of Wyoming counties
 wy <- counties[counties$state == "Wyoming","geometry"]
 counties[counties$state == "Wyoming","geometry"] %<>%
   sf::st_difference(yell$geometry)
@@ -98,9 +98,31 @@ yell$geometry <-
       sf::st_make_valid()
   )
 
+# Michigan includes Isle Royale National Park as its own entity
+# Download the boundary of Isle Royale from the USA Protected Areas Database (PAD-US)
+isro <-
+  "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/USA_Protected_Areas_Fee_Manager/FeatureServer/0/query" %>%
+  httr::modify_url(
+    query = list(
+      f = "json",
+      where = "Unit_Nm='Isle Royale National Park'",
+      returnGeometry = "true"
+    )
+  ) %>%
+  sf::read_sf() %>%
+  sf::st_transform("WGS84") %>%
+  dplyr::summarise() %>%
+  dplyr::transmute(state = "Michigan",
+                   county = "Isle Royale National Park") %>%
+  sfheaders::sf_remove_holes()
+
+# Remove Isle Royale from within the boundary of Michigan counties
+counties[counties$state == "Michigan","geometry"] %<>%
+  sf::st_difference(isro$geometry)
+
 # Add Annapolis, Mesa Verde NP, and Yellowstone NP as "counties"
 counties %<>%
-  dplyr::bind_rows(list(annapolis, meve, yell)) %>%
+  dplyr::bind_rows(list(annapolis, meve, yell, isro)) %>%
   sf::st_cast("MULTIPOLYGON")
 
 # For states that include county codes, read in the codes
@@ -239,7 +261,7 @@ ct_towns <-
   dplyr::arrange(NAME) %>%
   dplyr::transmute(state = "Connecticut",
                    town = NAME,
-                   town_code = dplyr::row_number()) %T>%
+                   town_code = as.character(dplyr::row_number())) %T>%
   {
     sf::st_drop_geometry(.) %>%
       dplyr::select(Town = town,
