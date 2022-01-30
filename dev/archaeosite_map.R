@@ -26,7 +26,8 @@ rotate = function(x, a){
 } 
 
 smithsonian <-
-  sf::read_sf("../smithsonian.geojson") %>%
+  sf::read_sf("../archaeosite_ids.topojson") %>%
+  sf::st_set_crs("WGS84") %>%
   sf::st_transform("EPSG:2163")
 
 ak <-
@@ -86,7 +87,7 @@ smithsonian %>%
                        fillColor = ~pal[color],
                        fillOpacity = 0.7, 
                        smoothFactor = 0.5,
-                       label = ~smithsonian_id,
+                       label = ~site_id,
                        labelOptions = leaflet::labelOptions(direction = "auto")) %>%
   leaflet.extras::setMapWidgetStyle(list(background= "white")) %>%
   leaflet.extras::addSearchFeatures(targetGroups = "main",

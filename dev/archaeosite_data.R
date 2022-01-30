@@ -242,15 +242,12 @@ hi_quads <-
 # New York uses Minor Civil Divisions, as defined in the "County Subdivisions" 
 # dataset in the US Census Tigris database
 ny_towns <- 
-  tigris::county_subdivisions(state = "NY") %>%
+  tigris::county_subdivisions(state = "New York") %>%
+  dplyr::filter(NAME != "County subdivisions not defined") %>%
   dplyr::transmute(state = "New York",
                    town = NAME,
                    town_code = COUSUBFP) %>%
-  sf::st_transform("WGS84") %>%
-  sf::st_intersection(tigris::counties(state = "New York") %>%
-                        sf::st_geometry() %>%
-                        sf::st_transform("WGS84") %>%
-                        sf::st_union())
+  sf::st_transform("WGS84")
 
 # Connecticut uses town codes, as defined in the "County Subdivisions" 
 # dataset in the US Census Tigris database. Towns are arranged in alphabetical
@@ -268,11 +265,7 @@ ct_towns <-
                     `Town Code` = town_code) %>%
       readr::write_csv("../states/Connecticut_towns.csv")
   } %>%
-  sf::st_transform("WGS84") %>%
-  sf::st_intersection(tigris::counties(state = "Connecticut") %>%
-                        sf::st_geometry() %>%
-                        sf::st_transform("WGS84") %>%
-                        sf::st_union())
+  sf::st_transform("WGS84")
 
 ## Massachusetts town codes
 ## These are only relevant for historic sites
@@ -310,7 +303,7 @@ archaeosite_ids <-
   dplyr::bind_rows(ct_towns) %>%
   dplyr::bind_rows(me_quads) %>%
   dplyr::bind_rows(counties %>%
-                     dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%
+                     dplyr::filter(state %in% c("New Mexico","Rhode Island")) %>%
                      dplyr::group_by(state) %>%
                      dplyr::summarise()) %>%
   dplyr::left_join(state_codes) %>%
@@ -321,22 +314,22 @@ archaeosite_ids %>%
   geojsonsf::sf_geojson() %>%
   geojsonio::geo2topo(object_name = "archaeosite_ids",
                       quantization = 1e6) %>%
-  jsonlite::fromJSON(simplifyVector = FALSE) %>%
+  # jsonlite::fromJSON(simplifyVector = FALSE) %>%
   # rlist::list.clean(recursive = TRUE) %>%
-  jsonlite::toJSON(auto_unbox = TRUE) %>%
+  # jsonlite::toJSON(auto_unbox = TRUE) %>%
   geojsonio:::write_topojson("../archaeosite_ids.topojson")
 
-sf::read_sf("../archaeosite_ids.topojson") %>%
-  sf::st_set_crs(4326) %>%
-  mapview::mapview()
-
-leaflet::leaflet() %>% 
-  leaflet::addTopoJSON("../archaeosite_ids.topojson",
-                       group = "main",
-                       weight = 0.2, 
-                       color = "white", 
-                       opacity = 1,
-                       fillOpacity = 0.7, 
-                       smoothFactor = 0.5)
+# sf::read_sf("../archaeosite_ids.topojson") %>%
+#   sf::st_set_crs(4326) %>%
+#   mapview::mapview()
+# 
+# leaflet::leaflet() %>% 
+#   leaflet::addTopoJSON("../archaeosite_ids.topojson",
+#                        group = "main",
+#                        weight = 0.2, 
+#                        color = "white", 
+#                        opacity = 1,
+#                        fillOpacity = 0.7, 
+#                        smoothFactor = 0.5)
 
 
