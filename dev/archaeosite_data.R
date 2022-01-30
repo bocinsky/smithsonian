@@ -112,8 +112,8 @@ county_codes <-
   purrr::map_dfr(readr::read_csv, .id = "State", na = "") %>%
   dplyr::rename(state = State,
                 county = County,
-                county_code = Abbreviation) %>%
-  dplyr::mutate(county_code = stringr::str_to_upper(county_code))
+                county_code = Abbreviation)# %>%
+  # dplyr::mutate(county_code = stringr::str_to_upper(county_code))
 
 # Read in the Smithsonian Trinomial state codes and site numbering systems
 state_codes <-
@@ -219,13 +219,35 @@ hi_quads <-
 
 # New York uses Minor Civil Divisions, as defined in the "County Subdivisions" 
 # dataset in the US Census Tigris database
-ny_mcds <- 
+ny_towns <- 
   tigris::county_subdivisions(state = "NY") %>%
   dplyr::transmute(state = "New York",
-                   minor_civil_division = COUSUBFP) %>%
+                   town = NAME,
+                   town_code = COUSUBFP) %>%
   sf::st_transform("WGS84") %>%
-  sf::st_intersection(counties %>%
-                        dplyr::filter(state == "New York") %>%
+  sf::st_intersection(tigris::counties(state = "New York") %>%
+                        sf::st_geometry() %>%
+                        sf::st_transform("WGS84") %>%
+                        sf::st_union())
+
+# Connecticut uses town codes, as defined in the "County Subdivisions" 
+# dataset in the US Census Tigris database. Towns are arranged in alphabetical
+# order, then numbered sequentially.
+ct_towns <- 
+  tigris::county_subdivisions(state = "CT") %>%
+  dplyr::filter(NAME != "County subdivisions not defined") %>%
+  dplyr::arrange(NAME) %>%
+  dplyr::transmute(state = "Connecticut",
+                   town = NAME,
+                   town_code = dplyr::row_number()) %T>%
+  {
+    sf::st_drop_geometry(.) %>%
+      dplyr::select(Town = town,
+                    `Town Code` = town_code) %>%
+      readr::write_csv("../states/Connecticut_towns.csv")
+  } %>%
+  sf::st_transform("WGS84") %>%
+  sf::st_intersection(tigris::counties(state = "Connecticut") %>%
                         sf::st_geometry() %>%
                         sf::st_transform("WGS84") %>%
                         sf::st_union())
@@ -262,7 +284,8 @@ archaeosite_ids <-
   dplyr::bind_rows(ak_quads) %>%
   dplyr::bind_rows(az_quads) %>%
   dplyr::bind_rows(hi_quads) %>%
-  dplyr::bind_rows(ny_mcds) %>%
+  dplyr::bind_rows(ny_towns) %>%
+  dplyr::bind_rows(ct_towns) %>%
   dplyr::bind_rows(me_quads) %>%
   dplyr::bind_rows(counties %>%
                      dplyr::filter(state %in% c("Connecticut","New Mexico","Rhode Island")) %>%

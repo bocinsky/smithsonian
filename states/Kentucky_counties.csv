@@ -1,122 +1,121 @@
 County,Abbreviation
-Adair       ,AD
-Allen       ,AL
-Anderson    ,AN
-Ballard     ,BA
-Barren      ,BN
-Bath        ,BH
-Bell        ,BL
-Boone       ,BE
-Bourbon     ,BB
-Boyd        ,BD
-Boyle       ,BO
-Bracken     ,BK
-Breathitt   ,BR
-Breckinridge,BC
-Bullitt     ,BU
-Butler      ,BT
-Caldwell    ,CA
-Calloway    ,CW
-Campbell    ,CP
-Carlisle    ,CE
-Carroll     ,CL
-Carter      ,CR
-Casey       ,CS
-Christian   ,CH
-Clark       ,CK
-Clay        ,CY
-Clinton     ,CT
-Crittenden  ,CN
-Cumberland  ,CU
-Daviess     ,DA
-Edmonson    ,ED
-Elliott     ,EL
-Estill      ,ES
-Fayette     ,FA
-Fleming     ,FL
-Floyd       ,FD
-Franklin    ,FR
-Fulton      ,FU
-Gallatin    ,GA
-Garrard     ,GD
-Grant       ,GR
-Graves      ,GV
-Grayson     ,GY
-Green       ,GN
-Greenup     ,GP
-Hancock     ,HA
-Hardin      ,HD
-Harlan      ,HL
-Harrison    ,HR
-Hart        ,HT
-Henderson   ,HE
-Henry       ,HY
-Hickman     ,HI
-Hopkins     ,HK
-Jackson     ,JA
-Jefferson   ,JF
-Jessamine   ,JS
-Johnson     ,JO
-Kenton      ,KE
-Knott       ,KT
-Knox        ,KX
-Larue       ,LU
-Laurel      ,LL
-Lawrence    ,LA
-Lee         ,LE
-Leslie      ,LS
-Letcher     ,LR
-Lewis       ,LW
-Lincoln     ,LI
-Livingston  ,LV
-Logan       ,LO
-Lyon        ,LY
-McCracken   ,MCN
-McCreary    ,MCY
-McLean      ,MCL
-Madison     ,MA
-Magoffin    ,MG
-Marion      ,MN
-Marshall    ,ML
-Martin      ,MT
-Mason       ,MS
-Meade       ,MD
-Menifee     ,MF
-Mercer      ,ME
-Metcalfe    ,MC
-Monroe      ,MR
-Montgomery  ,MM
-Morgan      ,MO
-Muhlenberg  ,MU
-Nelson      ,NE
-Nicholas    ,NI
-Ohio        ,OH
-Oldham      ,OL
-Owen        ,ON
-Owsley      ,OW
-Pendleton   ,PD
-Perry       ,PE
-Pike        ,PI
-Powell      ,PO
-Pulaski     ,PU
-Robertson   ,RB
-Rockcastle  ,RK
-Rowan       ,RO
-Russell     ,RU
-Scott       ,SC
-Shelby      ,SH
-Simpson     ,SI
-Spencer     ,SP
-Taylor      ,TA
-Todd        ,TO
-Trigg       ,TR
-Trimble     ,TM
-Union       ,UN
-Warren      ,WA
-Washington  ,WS
-Wayne,WN
-Webster,WE
-Whitley,WH
-Wolfe,WO
-Woodford,WD
-,  
+Adair,Ad
+Allen,Al
+Anderson,An
+Ballard,Ba
+Barren,Bn
+Bath,Bh
+Bell,Bl
+Boone,Be
+Bourbon,Bb
+Boyd,Bd
+Boyle,Bo
+Bracken,Bk
+Breathitt,Br
+Breckinridge,Bc
+Bullitt,Bu
+Butler,Bt
+Caldwell,Ca
+Calloway,Cw
+Campbell,Cp
+Carlisle,Ce
+Carroll,Cl
+Carter,Cr
+Casey,Cs
+Christian,Ch
+Clark,Ck
+Clay,Cy
+Clinton,Ct
+Crittenden,Cn
+Cumberland,Cu
+Daviess,Da
+Edmonson,Ed
+Elliott,El
+Estill,Es
+Fayette,Fa
+Fleming,Fl
+Floyd,Fd
+Franklin,Fr
+Fulton,Fu
+Gallatin,Ga
+Garrard,Gd
+Grant,Gr
+Graves,Gv
+Grayson,Gy
+Green,Gn
+Greenup,Gp
+Hancock,Ha
+Hardin,Hd
+Harlan,Hl
+Harrison,Hr
+Hart,Ht
+Henderson,He
+Henry,Hy
+Hickman,Hi
+Hopkins,Hk
+Jackson,Ja
+Jefferson,Jf
+Jessamine,Js
+Johnson,Jo
+Kenton,Ke
+Knott,Kt
+Knox,Kx
+Larue,Lu
+Laurel,Ll
+Lawrence,La
+Lee,Le
+Leslie,Ls
+Letcher,Lr
+Lewis,Lw
+Lincoln,Li
+Livingston,Lv
+Logan,Lo
+Lyon,Ly
+McCracken,McN
+McCreary,McY
+McLean,McL
+Madison,Ma
+Magoffin,Mg
+Marion,Mn
+Marshall,Ml
+Martin,Mt
+Mason,Ms
+Meade,Md
+Menifee,Mf
+Mercer,Me
+Metcalfe,Mc
+Monroe,Mr
+Montgomery,Mm
+Morgan,Mo
+Muhlenberg,Mu
+Nelson,Ne
+Nicholas,Ni
+Ohio,Oh
+Oldham,Ol
+Owen,On
+Owsley,Ow
+Pendleton,Pd
+Perry,Pe
+Pike,Pi
+Powell,Po
+Pulaski,Pu
+Robertson,Rb
+Rockcastle,Rk
+Rowan,Ro
+Russell,Ru
+Scott,Sc
+Shelby,Sh
+Simpson,Si
+Spencer,Sp
+Taylor,Ta
+Todd,To
+Trigg,Tr
+Trimble,Tm
+Union,Un
+Warren,Wa
+Washington,Ws
+Wayne,Wn
+Webster,We
+Whitley,Wh
+Wolfe,Wo
+Woodford,Wd
